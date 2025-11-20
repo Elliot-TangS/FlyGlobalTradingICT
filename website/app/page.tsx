@@ -115,48 +115,42 @@ export default function Home() {
           <div className="container mx-auto px-6">
               <div className="flex flex-col md:flex-row justify-between items-end mb-20">
                   <div className="mb-8 md:mb-0">
-                      <h2 className="section-title mb-4">Core Products & Solutions</h2>
-                      <p className="section-desc">Comprehensive ICT infrastructure components.</p>
+                      <h2 className="section-title mb-4">Core Products</h2>
+                      <p className="section-desc">Premium High-Speed Optical Transceivers.</p>
                   </div>
                   <Link href="/products" className="hidden md:flex items-center gap-2 text-[#0066cc] hover:underline font-medium text-lg group">
                       View All Products <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                   </Link>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {[
                       { 
-                          title: 'Optical Modules', 
-                          subtitle: '1G–1.6T Series',
-                          desc: 'Compatible with NVIDIA, Huawei, Cisco. For AI/DC & 5G.', 
+                          title: '1.6T Optical Modules', 
+                          subtitle: 'Next-Gen AI Clusters',
+                          desc: 'Ultra-high bandwidth for next-generation AI and hyperscale data center networks. Defining the future of connectivity.', 
                           image: '/images/optical module-1.png' 
                       },
                       { 
-                          title: 'Network System', 
-                          subtitle: 'Switches & Routers',
-                          desc: 'Flexible network architecture solutions.', 
-                          image: '/images/optical module-4.png' 
-                      },
-                      { 
-                          title: 'Storage & Computing', 
-                          subtitle: 'SSD & GPU',
-                          desc: 'High-performance accelerators for AI & Big Data.', 
+                          title: '800G Optical Modules', 
+                          subtitle: 'OSFP & QSFP-DD',
+                          desc: 'High-density, low-latency solutions optimized for cloud computing and massive data throughput.', 
                           image: '/images/optical module-2.png' 
                       },
                       { 
-                          title: 'Other Components', 
-                          subtitle: 'CPUs & ICs',
-                          desc: 'Intel processors, RAID controllers, and core chips.', 
-                          image: '/images/optical module-5.png' 
+                          title: '400G Optical Modules', 
+                          subtitle: 'Mainstream High-Performance',
+                          desc: 'Industry-standard high-speed interconnects delivering reliable performance for enterprise and telecom networks.', 
+                          image: '/images/optical module-3.png' 
                       }
                   ].map((item, i) => (
                        <Link href="/products" key={i} className="apple-card p-8 flex flex-col h-full group cursor-pointer hover:border-blue-100">
-                          <div className="mb-8 relative h-56 w-full bg-[#fbfbfd] rounded-2xl flex items-center justify-center overflow-hidden">
+                          <div className="mb-8 relative h-64 w-full bg-[#fbfbfd] rounded-2xl flex items-center justify-center overflow-hidden">
                               <Image 
                                 src={item.image} 
                                 alt={item.title}
                                 fill
-                                className="object-contain p-6 transition-transform duration-700 group-hover:scale-110"
+                                className="object-contain p-8 transition-transform duration-700 group-hover:scale-110"
                               />
                           </div>
                           <div>
