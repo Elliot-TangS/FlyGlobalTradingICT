@@ -18,11 +18,11 @@ export default function Hero() {
             Shenzhen Huamao Technology Co., Ltd.
           </h2>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold text-black mb-8 leading-tight tracking-tight">
-            Global Vision. <br />
-            <span className="text-gray-500">Localized Service.</span>
+            High-Performance Optical Connectivity <br />
+            <span className="text-gray-500">for AI, Hyperscale & Cloud Data Centers</span>
           </h1>
-          <p className="text-gray-500 text-xl md:text-2xl max-w-2xl mx-auto mb-12 leading-relaxed font-light">
-            Your trustworthy partner for high-speed optical modules and AI data center infrastructure.
+          <p className="text-gray-500 text-xl md:text-2xl max-w-3xl mx-auto mb-12 leading-relaxed font-light">
+            As the exclusive supplier to national supercomputing centres, Shenzhen Huamao Technology Co., Ltd. delivers ultra-low-power, ultra-high-bandwidth optical modules—engineered for the next-generation data-driven world.
           </p>
 
           <div className="flex flex-col md:flex-row items-center justify-center gap-6">

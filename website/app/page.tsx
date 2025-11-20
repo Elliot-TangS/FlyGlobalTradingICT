@@ -18,94 +18,41 @@ export default function Home() {
 
       <Hero />
 
-      {/* Global Vision, Localized Service (Interactive Map Section) */}
-      <section className="py-32 bg-transparent relative z-10">
+      {/* Core Value Proposition (formerly Global Operations / Why Choose Us) */}
+      <section className="py-32 bg-white relative z-10">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-20">
-            <h2 className="section-title mb-6">Global Operations</h2>
-            <p className="section-desc max-w-3xl mx-auto">
-              Headquartered in Hong Kong, we operate regional centers in Shenzhen and Chengdu, with overseas offices in Malaysia, Poland, Russia, the USA, and Australia to serve you better.
-            </p>
-          </div>
-          
-          <div className="max-w-6xl mx-auto">
-             {/* Pass the ref to the placeholder inside InteractiveMap */}
-             <InteractiveMap ref={mapContainerRef} />
-          </div>
-        </div>
-      </section>
-
-      {/* Strategic Partner Section */}
-      <section className="py-32 bg-[#f5f5f7] relative z-10">
-        <div className="container mx-auto px-6">
-           <div className="text-center mb-20">
-              <h2 className="section-title mb-6">Strategic Innovation Partner</h2>
+           <div className="text-center mb-24">
+              <h2 className="section-title mb-6">Core Value Proposition</h2>
               <p className="section-desc max-w-3xl mx-auto">
-                 Collaborating with a leading photonic technology company specializing in advanced opto-chips and optical transceivers for hyperscale AI computing.
+                  Connecting the world with ultra-low-power, ultra-high-bandwidth optical technology.
               </p>
            </div>
 
-           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
-              <div className="apple-card p-10 flex flex-col h-full">
-                 <h3 className="text-2xl font-semibold mb-4 text-[#0066cc]">R&D Leadership</h3>
-                 <p className="text-[#86868b] leading-relaxed text-lg">
-                    Guided by Silicon Valley optoelectronics pioneers and award-winning scientists. The company holds a strong track record in cutting-edge optical chips, including multiple world-first innovations.
-                 </p>
-              </div>
-              <div className="apple-card p-10 flex flex-col h-full">
-                 <h3 className="text-2xl font-semibold mb-4 text-[#0066cc]">Advanced Portfolio</h3>
-                 <p className="text-[#86868b] leading-relaxed text-lg">
-                    A full portfolio of 200G–1.6T ultra-low-power modules for AI data centers, national supercomputing centers, and cloud data centers.
-                 </p>
-              </div>
-              <div className="apple-card p-10 flex flex-col h-full">
-                 <h3 className="text-2xl font-semibold mb-4 text-[#0066cc]">Industry Recognition</h3>
-                 <p className="text-[#86868b] leading-relaxed text-lg">
-                    Ranked 1st among 15,500+ enterprises in the China Innovation & Entrepreneurship Competition and recognized as a Hidden Champion Enterprise in Guangzhou.
-                 </p>
-              </div>
-           </div>
-           
-           {/* Tech Partners Logos or Text List */}
-           <div className="text-center">
-              <p className="text-xs font-semibold tracking-widest text-[#86868b] uppercase mb-8">Joint Technical Cooperation With</p>
-              <div className="flex flex-wrap justify-center gap-x-12 gap-y-4 text-[#1d1d1f] font-medium text-lg">
-                 <span>Hamamatsu</span>
-                 <span>Samsung Semiconductor</span>
-                 <span>Semtech</span>
-                 <span>China Unicom Research Institute</span>
-                 <span>National Supercomputing Center (NSCC)</span>
-              </div>
-           </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us - Apple Style Cards */}
-      <section className="py-32 bg-[#f5f5f7] relative z-10">
-        <div className="container mx-auto px-6">
-           <div className="text-center mb-20">
-              <h2 className="section-title mb-6">Why Choose Us</h2>
-              <p className="section-desc max-w-2xl mx-auto">
-                  Excellence in every connection.
-              </p>
-           </div>
-
-           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-               {[
-                   { icon: <ShieldCheck />, title: 'Reliable Certified Products', desc: 'Sourced from authorized original manufacturers. ISO, RoHS, UL, FCC compliant.' },
-                   { icon: <DollarSign />, title: 'Competitive Pricing', desc: 'Optimized costs through global supply chain economies of scale.' },
-                   { icon: <Clock />, title: 'Fast-Responsive Service', desc: 'Localized support from our five global regional offices.' },
-                   { icon: <Wrench />, title: 'Professional Support', desc: 'Comprehensive technical guidance for compliance and integration.' },
-                   { icon: <Truck />, title: 'Stable Supply Chain', desc: 'Long-term strategic cooperation ensuring business continuity.' }
-               ].map((item, i) => (
-                   <div key={i} className="apple-card p-8 flex flex-col items-center text-center h-full">
-                       <div className="w-12 h-12 text-[#0066cc] mb-6">
-                           {item.icon}
-                       </div>
-                       <h3 className="text-lg font-semibold mb-3 text-[#1d1d1f]">{item.title}</h3>
-                       <p className="text-sm text-[#86868b] leading-relaxed">{item.desc}</p>
-                   </div>
-               ))}
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+               <div className="apple-card p-10 flex flex-col justify-center h-full bg-[#f5f5f7]">
+                   <h3 className="text-2xl font-semibold mb-4 text-[#1d1d1f]">Unmatched Power Efficiency</h3>
+                   <p className="text-[#86868b] leading-relaxed text-lg">
+                       Our 200G through 1.6T modules deliver up to 70% lower power consumption versus legacy solutions, significantly reducing operational costs.
+                   </p>
+               </div>
+               <div className="apple-card p-10 flex flex-col justify-center h-full bg-[#f5f5f7]">
+                   <h3 className="text-2xl font-semibold mb-4 text-[#1d1d1f]">National-Grade Qualification</h3>
+                   <p className="text-[#86868b] leading-relaxed text-lg">
+                       Sole supplier to a national supercomputing centre, demonstrating industry-leading credibility and performance stability.
+                   </p>
+               </div>
+               <div className="apple-card p-10 flex flex-col justify-center h-full bg-[#f5f5f7]">
+                   <h3 className="text-2xl font-semibold mb-4 text-[#1d1d1f]">Full Stack Portfolio</h3>
+                   <p className="text-[#86868b] leading-relaxed text-lg">
+                       From 200G to 1.6T, supporting AI clusters, cloud hyperscale, telecom backbone & FTTx with seamless integration.
+                   </p>
+               </div>
+               <div className="apple-card p-10 flex flex-col justify-center h-full bg-[#f5f5f7]">
+                   <h3 className="text-2xl font-semibold mb-4 text-[#1d1d1f]">Global Reach, Local Service</h3>
+                   <p className="text-[#86868b] leading-relaxed text-lg">
+                       HQ in Hong Kong plus regional hubs in Shenzhen, Chengdu, Malaysia, Poland, USA and Australia ensure rapid response and regional support.
+                   </p>
+               </div>
            </div>
         </div>
       </section>
@@ -128,19 +75,19 @@ export default function Home() {
                       { 
                           title: '1.6T Optical Modules', 
                           subtitle: 'Next-Gen AI Clusters',
-                          desc: 'Ultra-high bandwidth for next-generation AI and hyperscale data center networks. Defining the future of connectivity.', 
+                          desc: 'Designed for next-gen AI clusters, offering ultra-high bandwidth and ultra-low latency to power the hyperscale architectures of tomorrow.', 
                           image: '/images/optical module-1.png' 
                       },
                       { 
                           title: '800G Optical Modules', 
                           subtitle: 'OSFP & QSFP-DD',
-                          desc: 'High-density, low-latency solutions optimized for cloud computing and massive data throughput.', 
+                          desc: 'OSFP & QSFP-DD form-factors optimized for high-density cloud interconnects. Next-level performance in compact footprint.', 
                           image: '/images/optical module-2.png' 
                       },
                       { 
                           title: '400G Optical Modules', 
                           subtitle: 'Mainstream High-Performance',
-                          desc: 'Industry-standard high-speed interconnects delivering reliable performance for enterprise and telecom networks.', 
+                          desc: 'The mainstream high-performance backbone solution—delivering enterprise-grade reliability and industry-standard compatibility.', 
                           image: '/images/optical module-3.png' 
                       }
                   ].map((item, i) => (
@@ -168,6 +115,155 @@ export default function Home() {
               <div className="mt-16 text-center md:hidden">
                   <Link href="/products" className="inline-flex items-center gap-2 text-[#0066cc] font-medium text-lg">
                       View All Products <ArrowRight className="w-5 h-5" />
+                  </Link>
+              </div>
+          </div>
+      </section>
+
+      {/* Technology Excellence Section */}
+      <section className="py-32 bg-[#f5f5f7] relative z-10">
+          <div className="container mx-auto px-6">
+             <div className="text-center mb-24">
+                <h2 className="section-title mb-6">Technology Excellence</h2>
+                <p className="section-desc max-w-3xl mx-auto">
+                   Engineering team comprised of Silicon Valley pioneers and award-winning scientists.
+                </p>
+             </div>
+
+             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto text-center">
+                 <div>
+                     <div className="text-5xl font-bold text-[#0066cc] mb-6">First</div>
+                     <h3 className="text-xl font-semibold mb-4 text-[#1d1d1f]">Commercial 1577 nm BH-DML</h3>
+                     <p className="text-[#86868b] leading-relaxed">Setting a new industry benchmark for performance and reliability.</p>
+                 </div>
+                 <div>
+                     <div className="text-5xl font-bold text-[#0066cc] mb-6">Low</div>
+                     <h3 className="text-xl font-semibold mb-4 text-[#1d1d1f]">Ultra-low TDECQ Design</h3>
+                     <p className="text-[#86868b] leading-relaxed">Achieving industry-leading signal integrity for critical data transmission.</p>
+                 </div>
+                 <div>
+                     <div className="text-5xl font-bold text-[#0066cc] mb-6">98%</div>
+                     <h3 className="text-xl font-semibold mb-4 text-[#1d1d1f]">Production Yield Rate</h3>
+                     <p className="text-[#86868b] leading-relaxed">Class 1K-100K cleanrooms with field-failure rates below 0.1%.</p>
+                 </div>
+             </div>
+          </div>
+      </section>
+
+      {/* Industry Validation & Partner Network */}
+      <section className="py-32 bg-white relative z-10">
+          <div className="container mx-auto px-6">
+             <div className="bg-[#1d1d1f] rounded-[40px] p-12 md:p-20 text-center text-white relative overflow-hidden">
+                 <div className="relative z-10">
+                     <h2 className="text-3xl md:text-5xl font-semibold mb-8">Industry Validation & Partner Network</h2>
+                     <p className="text-xl text-gray-300 max-w-4xl mx-auto mb-12 font-light leading-relaxed">
+                         Ranked #1 out of 15,500+ enterprises in the China Innovation & Entrepreneurship Competition. Recognized as a “Hidden Champion” in Guangzhou.
+                     </p>
+                     <p className="text-gray-400 max-w-3xl mx-auto mb-16">
+                         We partner with global leaders—including Hamamatsu Photonics, Semtech Corporation, Samsung Semiconductor and China Unicom Research Institute—as well as supplying modules into national supercomputing centres.
+                     </p>
+                     
+                     <div className="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-80">
+                        {/* Use white logos or filter existing ones to white/light */}
+                        {['Partner-huawei.png', 'Partner-intel.png', 'Broadcom.png', 'NVIDIA.png', 'Mellanox.png'].map((logo) => (
+                            <div key={logo} className="relative h-10 w-32 brightness-0 invert opacity-70 hover:opacity-100 transition-opacity duration-500">
+                                <Image src={`/images/${logo}`} alt="Partner" fill className="object-contain" />
+                            </div>
+                        ))}
+                     </div>
+                 </div>
+             </div>
+          </div>
+      </section>
+      
+      {/* Use Cases */}
+      <section className="py-32 bg-[#f5f5f7] relative z-10">
+          <div className="container mx-auto px-6">
+              <div className="text-center mb-24">
+                 <h2 className="section-title mb-6">Real-World Use Cases</h2>
+                 <p className="section-desc max-w-3xl mx-auto">
+                    Powering the infrastructure of the future.
+                 </p>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                  <div className="apple-card p-10 bg-white">
+                      <h3 className="text-2xl font-semibold mb-4 text-[#1d1d1f]">Hyperscale AI Data Centres</h3>
+                      <p className="text-[#86868b] leading-relaxed">
+                          Deploy our 1.6T modules in high-density racks to accelerate next-gen training and inference workloads.
+                      </p>
+                  </div>
+                  <div className="apple-card p-10 bg-white">
+                      <h3 className="text-2xl font-semibold mb-4 text-[#1d1d1f]">Cloud & Colocation Operators</h3>
+                      <p className="text-[#86868b] leading-relaxed">
+                          Leverage 800G solutions for low-latency, high-throughput interconnects with minimal power and space cost.
+                      </p>
+                  </div>
+                  <div className="apple-card p-10 bg-white">
+                      <h3 className="text-2xl font-semibold mb-4 text-[#1d1d1f]">Telecom Backbone & 5G Edge</h3>
+                      <p className="text-[#86868b] leading-relaxed">
+                          Our 400G and 200G modules offer hardened performance with global telecom compliance.
+                      </p>
+                  </div>
+                  <div className="apple-card p-10 bg-white">
+                      <h3 className="text-2xl font-semibold mb-4 text-[#1d1d1f]">FTTx & PON Networks</h3>
+                      <p className="text-[#86868b] leading-relaxed">
+                          Pioneering the 1577 nm BH-DML solution for seamless fibre-to-the-home and edge connectivity.
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      {/* Manufacturing & QA */}
+      <section className="py-32 bg-white relative z-10">
+          <div className="container mx-auto px-6">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                  <div>
+                      <h2 className="section-title mb-8">Manufacturing & Quality Assurance</h2>
+                      <p className="section-desc mb-8">
+                          With an integrated operations centre in Shenzhen and regional production and R&D in Chengdu, our manufacturing footprint spans &gt; 50,000 m² of Class-1,000/10,000/100,000 cleanroom facilities.
+                      </p>
+                      <p className="section-desc mb-12">
+                          We adhere to ISO 9001, RoHS, UL and FCC standards, with a resilient global supply-chain ensuring continuity in large-scale deployments.
+                      </p>
+                      <ul className="space-y-4 text-[#86868b] font-medium text-lg">
+                          <li className="flex items-center gap-3"><ShieldCheck className="text-[#0066cc]" /> ISO 9001 Certified</li>
+                          <li className="flex items-center gap-3"><ShieldCheck className="text-[#0066cc]" /> RoHS Compliant</li>
+                          <li className="flex items-center gap-3"><ShieldCheck className="text-[#0066cc]" /> UL & FCC Approved</li>
+                      </ul>
+                  </div>
+                  <div className="bg-[#f5f5f7] rounded-[40px] p-12 flex flex-col justify-center h-full min-h-[400px] text-center">
+                      <Wrench className="w-24 h-24 text-[#0066cc] mx-auto mb-8 opacity-80" />
+                      <div className="text-6xl font-bold text-[#1d1d1f] mb-4">50,000+ m²</div>
+                      <div className="text-xl text-[#86868b]">Cleanroom Facilities</div>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      {/* About Us & Contact - Simple & Direct */}
+      <section className="py-40 bg-[#f5f5f7] text-center relative z-10">
+          <div className="container mx-auto px-6">
+              <div className="max-w-4xl mx-auto mb-24">
+                  <h2 className="section-title mb-8">About Us</h2>
+                  <p className="section-desc mb-12">
+                      Founded in Hong Kong, with operations and R&D hubs across China, Southeast Asia, Europe, USA and Australia, we serve clients in more than 30 countries. Our executive leadership includes former Fortune 500 technologists, Silicon Valley engineers and award-winning scientists. Together, we are building the optical-foundation of the AI era.
+                  </p>
+              </div>
+
+              <div className="max-w-4xl mx-auto bg-white rounded-[40px] p-16 shadow-xl">
+                  <h2 className="text-4xl font-semibold mb-8 text-[#1d1d1f]">Ready to elevate your connectivity?</h2>
+                  <p className="text-xl text-[#86868b] mb-12 font-light">
+                      Contact our global team for customised optical solutions.
+                  </p>
+                  <div className="flex flex-col md:flex-row justify-center gap-8 mb-12 text-lg font-medium text-[#1d1d1f]">
+                      <div>HK (HQ): <span className="text-[#0066cc]">+852 609 0287</span></div>
+                      <div>USA: <span className="text-[#0066cc]">+1 (223) 267-7777</span></div>
+                      <div>Email: <a href="mailto:info@flygtl-ict.com" className="text-[#0066cc] hover:underline">info@flygtl-ict.com</a></div>
+                  </div>
+                  <Link href="/contact" className="apple-button text-lg px-12 py-4 shadow-lg hover:shadow-xl">
+                      Get in Touch
                   </Link>
               </div>
           </div>
