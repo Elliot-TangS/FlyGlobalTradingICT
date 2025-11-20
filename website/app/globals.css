@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #1d1d1f; /* Apple-like nearly black */
-  --primary: #0066cc; /* Apple-like blue */
-  --primary-dark: #004499;
-  --secondary: #f5f5f7; /* Apple-like light gray background */
-  --accent: #2997ff;
-  --muted: #86868b;
-  --border: #d2d2d7;
+  --background: #030712; /* Very dark blue/black */
+  --foreground: #f8fafc; /* Nearly white */
+  --primary: #2997ff; /* Electric Blue */
+  --primary-dark: #0071e3;
+  --secondary: #0f172a; /* Dark blue/slate for cards */
+  --accent: #00f0ff; /* Cyan Neon */
+  --muted: #94a3b8; /* Slate 400 */
+  --border: #1e293b; /* Slate 800 */
 }
 
 @theme inline {
@@ -33,27 +33,31 @@ body {
 
 /* Custom Utilities */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(15, 23, 42, 0.6);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .apple-card {
-  background: #ffffff;
+  background: rgba(15, 23, 42, 0.5); /* Semi-transparent dark slate */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-radius: 24px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-  border: 1px solid rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .apple-card:hover {
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 40px rgba(0, 113, 227, 0.15); /* Blue glow */
   transform: translateY(-4px);
+  background: rgba(30, 41, 59, 0.7);
+  border-color: rgba(41, 151, 255, 0.3);
 }
 
 .apple-button {
-  background: #0071e3;
+  background: linear-gradient(135deg, #0071e3 0%, #005bb5 100%);
   color: white;
   border-radius: 980px;
   padding: 12px 24px;
@@ -61,12 +65,13 @@ body {
   font-weight: 500;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   letter-spacing: -0.01em;
+  box-shadow: 0 0 15px rgba(0, 113, 227, 0.4);
 }
 
 .apple-button:hover {
-  background: #0077ed;
+  background: linear-gradient(135deg, #2997ff 0%, #0077ed 100%);
   transform: scale(1.02);
-  box-shadow: 0 4px 12px rgba(0, 113, 227, 0.3);
+  box-shadow: 0 0 25px rgba(0, 113, 227, 0.6);
 }
 
 .section-title {
@@ -74,19 +79,19 @@ body {
   line-height: 1.1;
   font-weight: 600;
   letter-spacing: -0.02em;
-  color: #1d1d1f;
+  color: #f8fafc;
 }
 
 .section-desc {
   font-size: 1.25rem;
   line-height: 1.6;
   font-weight: 400;
-  color: #86868b;
+  color: #94a3b8;
 }
 
 .text-gradient {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-image: linear-gradient(90deg, #1d1d1f 0%, #434344 100%);
+  background-image: linear-gradient(90deg, #2997ff 0%, #00f0ff 100%);
 }

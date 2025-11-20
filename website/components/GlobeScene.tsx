@@ -25,18 +25,19 @@ export default function GlobeScene({ targetRef }: GlobeSceneProps) {
       if (canvasRef.current) {
         const width = window.innerWidth;
         const height = window.innerHeight;
+        const dpr = window.devicePixelRatio || 1;
         
         layoutRef.current.width = width;
         layoutRef.current.height = height;
         
-        canvasRef.current.width = width;
-        canvasRef.current.height = height;
+        // Optimize for High DPI screens for sharper, sci-fi look
+        canvasRef.current.width = width * dpr;
+        canvasRef.current.height = height * dpr;
         canvasRef.current.style.width = `${width}px`;
         canvasRef.current.style.height = `${height}px`;
 
         if (targetRef.current) {
             const rect = targetRef.current.getBoundingClientRect();
-            // Store absolute document position
             layoutRef.current.targetX = rect.left + window.scrollX;
             layoutRef.current.targetY = rect.top + window.scrollY;
             layoutRef.current.targetWidth = rect.width;
@@ -46,9 +47,6 @@ export default function GlobeScene({ targetRef }: GlobeSceneProps) {
     };
 
     window.addEventListener('resize', updateLayout);
-    // Also update on scroll initially to catch any layout shifts, or use ResizeObserver
-    // For simplicity and performance, we'll assume layout is stable after load unless resized.
-    // But we should check if targetRef is ready.
     
     // Use ResizeObserver to track target element changes
     let resizeObserver: ResizeObserver | null = null;
@@ -62,39 +60,38 @@ export default function GlobeScene({ targetRef }: GlobeSceneProps) {
     if (!canvasRef.current) return;
 
     const globe = createGlobe(canvasRef.current, {
-      devicePixelRatio: 1,
-      width: layoutRef.current.width,
-      height: layoutRef.current.height,
+      devicePixelRatio: window.devicePixelRatio || 1,
+      width: layoutRef.current.width * (window.devicePixelRatio || 1),
+      height: layoutRef.current.height * (window.devicePixelRatio || 1),
       phi: 0,
-      theta: 0.3,
-      dark: 0,
-      diffuse: 1.2,
-      mapSamples: 12000,
-      mapBrightness: 6,
-      baseColor: [1, 1, 1],
-      markerColor: [0, 0.4, 0.8],
-      glowColor: [0.8, 0.9, 1],
+      theta: 0.25, // Slightly tilted for better viewing angle
+      dark: 1, // Dark mode enabled for better contrast
+      diffuse: 3, // Higher diffuse for a glowing look
+      mapSamples: 20000, // Denser points for "Sci-Fi" data look
+      mapBrightness: 12, // Brighter map points
+      baseColor: [0.1, 0.1, 0.2], // Dark Navy/Slate base
+      markerColor: [2, 2, 3], // Ultra Bright/Glowing Markers (values > 1 bloom)
+      glowColor: [0.2, 0.5, 1], // Deep Blue Glow
+      opacity: 1, // Solid opacity
       markers: [
-        { location: [22.3193, 114.1694], size: 0.1 }, // HK
-        { location: [22.5431, 114.0579], size: 0.05 }, // SZ
-        { location: [30.5728, 104.0668], size: 0.05 }, // CD
-        { location: [3.0738, 101.5183], size: 0.05 }, // MY
-        { location: [33.4484, -112.0740], size: 0.05 }, // US
-        { location: [-27.4698, 153.0251], size: 0.05 }, // AU
-        { location: [52.2297, 21.0122], size: 0.05 }, // PL
-        { location: [55.7558, 37.6173], size: 0.05 }, // RU
+        { location: [22.3193, 114.1694], size: 0.08 }, // HK
+        { location: [22.5431, 114.0579], size: 0.06 }, // SZ
+        { location: [30.5728, 104.0668], size: 0.06 }, // CD
+        { location: [3.0738, 101.5183], size: 0.06 }, // MY
+        { location: [33.4484, -112.0740], size: 0.06 }, // US
+        { location: [-27.4698, 153.0251], size: 0.06 }, // AU
+        { location: [52.2297, 21.0122], size: 0.06 }, // PL
+        { location: [55.7558, 37.6173], size: 0.06 }, // RU
       ],
       onRender: (state) => {
         const scrollY = window.scrollY;
         const { width, height, targetX, targetY, targetWidth, targetHeight } = layoutRef.current;
+        const dpr = window.devicePixelRatio || 1;
         
         // Optimization: If scrolled far past the interaction zone, skip heavy updates
-        // Interaction zone ends around 1.5 viewport heights (Hero + Map section)
         if (scrollY > height * 2) {
-             // Still rotate but maybe skip transform updates if it's fixed/absolute?
-             // Actually if it's absolute docked, we don't need to update transform at all.
              state.phi = phi;
-             phi += 0.003;
+             phi += 0.005; // Slightly faster rotation
              return;
         }
 
@@ -105,11 +102,11 @@ export default function GlobeScene({ targetRef }: GlobeSceneProps) {
         const p = ease(progress);
 
         state.phi = phi;
-        phi += 0.003;
+        phi += 0.005; // Slightly faster rotation
         
         // Ensure render buffer matches window size (cached)
-        state.width = width;
-        state.height = height;
+        state.width = width * dpr;
+        state.height = height * dpr;
 
         // --- Positioning Logic ---
         
@@ -122,9 +119,11 @@ export default function GlobeScene({ targetRef }: GlobeSceneProps) {
         const tSize = Math.min(targetWidth, targetHeight) * 1.1;
 
         // 2. Start Dimensions (Hero Center)
-        const sx = width / 2;
+        // Adjusted for side-by-side layout on desktop
+        const isDesktop = width >= 1024; // lg breakpoint
+        const sx = isDesktop ? width * 0.75 : width / 2;
         const sy = height / 2;
-        const sSize = Math.min(width, height) * 0.6;
+        const sSize = isDesktop ? Math.min(width, height) * 0.8 : Math.min(width, height) * 0.6;
 
         // 3. Interpolate Size
         const currentSize = sSize + (tSize - sSize) * p;

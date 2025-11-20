@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
+import { DotPattern } from '@/components/ui/dot-pattern';
+import { cn } from '@/lib/utils';
 
 interface CategoryProps {
   title: string;
@@ -39,11 +41,26 @@ export default function ProductsPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-background pt-32 pb-12">
-      <div className="container mx-auto px-6">
+    <main className="min-h-screen bg-background pt-32 pb-12 relative overflow-hidden">
+      {/* Background Dot Pattern */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <DotPattern
+          width={20}
+          height={20}
+          cx={1}
+          cy={1}
+          cr={1}
+          className={cn(
+            "[mask-image:radial-gradient(900px_circle_at_center,white,transparent)]",
+            "fill-gray-300/40"
+          )}
+        />
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
         <div className="mb-24 text-center">
-          <h1 className="text-5xl md:text-7xl font-semibold mb-6 tracking-tight text-black">Product Portfolio</h1>
-          <p className="text-gray-500 max-w-2xl mx-auto text-xl font-light">
+          <h1 className="text-5xl md:text-7xl font-semibold mb-6 tracking-tight text-[#f8fafc]">Product Portfolio</h1>
+          <p className="text-[#94a3b8] max-w-2xl mx-auto text-xl font-light">
             Comprehensive range of high-speed optical transceivers from 1.6T to 10G, compatible with mainstream brands like NVIDIA, Huawei, and Cisco.
           </p>
         </div>
@@ -54,18 +71,18 @@ export default function ProductsPage() {
               <div className="flex flex-col lg:flex-row gap-16 items-start">
                 {/* Category Header & Image */}
                 <div className="lg:w-1/3 sticky top-32">
-                  <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-gray-50 mb-6 border border-gray-100 shadow-sm">
-                     <div className="absolute inset-0 flex items-center justify-center p-8 bg-gradient-to-br from-gray-50 to-white">
+                  <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-[#0f172a]/50 mb-6 border border-white/5 shadow-sm">
+                     <div className="absolute inset-0 flex items-center justify-center p-8 bg-transparent">
                         <Image
                           src="/images/optical module-1.png"
                           alt={category.title}
                           fill
-                          className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
+                          className="object-contain p-4 group-hover:scale-105 transition-transform duration-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]"
                         />
                      </div>
                   </div>
-                  <h2 className="text-3xl font-semibold text-black mb-4">{category.title}</h2>
-                  <button className="flex items-center gap-2 text-blue-600 font-medium hover:underline">
+                  <h2 className="text-3xl font-semibold text-[#f8fafc] mb-4">{category.title}</h2>
+                  <button className="flex items-center gap-2 text-[#2997ff] font-medium hover:underline hover:text-[#00f0ff]">
                     View Specifications <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
@@ -74,15 +91,15 @@ export default function ProductsPage() {
                 <div className="lg:w-2/3 w-full">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {category.products.map((product) => (
-                      <div key={product} className="p-6 bg-white border border-gray-100 rounded-xl hover:shadow-md transition-all duration-300 flex items-center justify-between group/item cursor-pointer hover:border-blue-100">
-                        <span className="font-medium text-gray-700 group-hover/item:text-black transition-colors">{product}</span>
-                        <ArrowRight className="w-4 h-4 text-blue-600 opacity-0 group-hover/item:opacity-100 -translate-x-2 group-hover/item:translate-x-0 transition-all" />
+                      <div key={product} className="p-6 bg-[#0f172a]/30 border border-white/5 rounded-xl hover:shadow-[0_0_15px_rgba(41,151,255,0.15)] transition-all duration-300 flex items-center justify-between group/item cursor-pointer hover:border-[#2997ff]/30 hover:bg-[#1e293b]">
+                        <span className="font-medium text-[#94a3b8] group-hover/item:text-[#f8fafc] transition-colors">{product}</span>
+                        <ArrowRight className="w-4 h-4 text-[#2997ff] opacity-0 group-hover/item:opacity-100 -translate-x-2 group-hover/item:translate-x-0 transition-all" />
                       </div>
                     ))}
                   </div>
                 </div>
               </div>
-              {idx !== categories.length - 1 && <div className="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent mt-32" />}
+              {idx !== categories.length - 1 && <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mt-32" />}
             </div>
           ))}
         </div>

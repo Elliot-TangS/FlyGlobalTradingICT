@@ -29,14 +29,14 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled ? 'bg-white/70 backdrop-blur-xl border-b border-gray-200/50 supports-[backdrop-filter]:bg-white/60' : 'bg-transparent'
+        isScrolled ? 'bg-[#030712]/70 backdrop-blur-xl border-b border-white/10 supports-[backdrop-filter]:bg-[#030712]/60' : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <div className="relative h-10 w-40">
-             {/* Assuming logo works on light background, otherwise might need a dark version */}
-             <Image src="/logo/logo.png" alt="Fly Global Trading" fill className="object-contain" priority />
+             {/* Logo might need brightness adjustment for dark mode if it's black text */}
+             <Image src="/logo/logo.png" alt="Fly Global Trading" fill className="object-contain brightness-0 invert" priority />
           </div>
         </Link>
 
@@ -46,7 +46,7 @@ export default function Header() {
             <Link
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-gray-600 hover:text-black transition-colors relative group tracking-wide"
+              className="text-sm font-medium text-gray-300 hover:text-white transition-colors relative group tracking-wide"
             >
               {link.name}
             </Link>
@@ -55,7 +55,7 @@ export default function Header() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-black"
+          className="md:hidden text-white"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X /> : <Menu />}
@@ -66,13 +66,13 @@ export default function Header() {
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-xl border-b border-gray-200 p-6 md:hidden flex flex-col gap-4 shadow-lg"
+            className="absolute top-full left-0 right-0 bg-[#030712]/95 backdrop-blur-xl border-b border-white/10 p-6 md:hidden flex flex-col gap-4 shadow-lg"
           >
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-lg font-medium text-black hover:text-primary"
+                className="text-lg font-medium text-white hover:text-[#2997ff]"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.name}
