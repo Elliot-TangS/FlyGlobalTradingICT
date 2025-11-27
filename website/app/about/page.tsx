@@ -83,7 +83,7 @@ export default function AboutPage() {
                 About Us
             </h1>
             <p className="text-xl text-[#94a3b8] leading-relaxed mb-6 font-light max-w-3xl mx-auto">
-                Huamao Technology builds the optical foundation of tomorrow’s digital world. With global offices and a multidisciplinary engineering team, we design and manufacture ultra-low-power optical transceivers that enable hyperscale AI clusters, cloud fabrics, and next-generation telecom networks.
+                Fly Global Trading Limited builds the optical foundation of tomorrow’s digital world. With global offices and a multidisciplinary engineering team, we design and manufacture ultra-low-power optical transceivers that enable hyperscale AI clusters, cloud fabrics, and next-generation telecom networks.
             </p>
         </div>
       </section>

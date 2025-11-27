@@ -15,8 +15,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Huamao Technology | Global ICT Infrastructure Partner",
+  title: "Fly Global Trading Limited | Global ICT Infrastructure Partner",
   description: "Your Trustworthy Global ICT Infrastructure Supply Partner. Specializing in high-speed optical modules (1G–1.6T) and AI data center solutions.",
+  icons: {
+    icon: '/logo/logo-s.png',
+  },
 };
 
 export default function RootLayout({

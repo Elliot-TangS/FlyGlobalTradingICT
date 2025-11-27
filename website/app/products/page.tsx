@@ -1,44 +1,79 @@
 import Image from 'next/image';
-import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { DotPattern } from '@/components/ui/dot-pattern';
 import { cn } from '@/lib/utils';
+import { products, Product } from '@/lib/products';
 
-interface CategoryProps {
+interface CategoryData {
   title: string;
-  products: string[];
+  description: string;
+  image: string; // Category hero image
+  items: (string | Product)[];
 }
 
 export default function ProductsPage() {
-  const categories: CategoryProps[] = [
+  // Helper to find a product by partial name match or ID, or return the string if not found
+  const findProduct = (name: string) => {
+    return products.find(p => p.name === name || p.id === name) || name;
+  };
+
+  const categories: CategoryData[] = [
     {
       title: '1.6T / 800G High-Speed',
-      products: ['1.6T OSFP DR8', '1.6T CPO', '800G OSFP SR8', '800G OSFP DR8', 'Ultra-Low Power 800G Transceiver'],
+      description: 'Next-generation interconnects for AI Training Clusters and Hyperscale Cloud.',
+      image: '/images/2. 800G OSFP SR8 (LO800-SR8M2C).jpg', // Use one of the real images as hero
+      items: [
+        findProduct('1.6T OSFP DR8'),
+        findProduct('800G OSFP SR8'),
+        findProduct('800G OSFP DR8'),
+        '1.6T CPO',
+        'Ultra-Low Power 800G Transceiver'
+      ],
     },
     {
       title: '400G / 200G Data Center',
-      products: ['400G QSFP-DD SR8', '400G QSFP-DD DR4', '400G QSFP-DD FR4', '400G OSFP DR4', '400G OSFP FR4', 'Ultra-Low Power 400G Transceiver', '200G QSFP56 SR4', '200G QSFP56 FR4', '200G QSFP56 AOC'],
+      description: 'High-density, low-power solutions for Spine-Leaf architectures.',
+      image: '/images/5. 400G QSFP112 DR4 (LQ400-DR4MC).jpg',
+      items: [
+        findProduct('400G QSFP112 VR4'),
+        findProduct('400G QSFP112 DR4'),
+        findProduct('400G OSFP-RHS SR4'),
+        findProduct('400G OSFP-RHS DR4'),
+        findProduct('200G QSFP56 SR4'),
+        '400G QSFP-DD SR8',
+        '400G QSFP-DD DR4', 
+        '400G OSFP DR4',
+      ],
     },
     {
       title: '100G Transceiver (QSFP28)',
-      products: ['100G QSFP28 SR4', '100G QSFP28 LR4 (10KM)', '100G QSFP28 CWDM4 (2KM)', '100G QSFP28 ZR4 (80KM)', '100G QSFP28 AOC (<100M)'],
+      description: 'Industry standard connectivity for enterprise and telecom.',
+      image: '/images/optical module-1.png', // Fallback or generic
+      items: ['100G QSFP28 SR4', '100G QSFP28 LR4 (10KM)', '100G QSFP28 CWDM4 (2KM)', '100G QSFP28 ZR4 (80KM)', '100G QSFP28 AOC (<100M)'],
     },
     {
-      title: '40G Transceiver (QSFP+)',
-      products: ['40G QSFP+ SR4', '40G QSFP+ LR4 (10KM)', '40G QSFP+ CWDM4 (40KM)', '40G QSFP+ AOC (<100M)'],
-    },
-    {
-      title: '25G Transceiver (SFP28)',
-      products: ['25G SFP28 SR (100M)', '25G SFP28 LR (10KM)', '25G SFP28 ER (40KM)', '25G SFP28 AOC (<100M)'],
-    },
-    {
-      title: '10G Transceiver (SFP+)',
-      products: ['10G SFP+ SR (300M)', '10G SFP+ LR (10KM)', '10G SFP+ ER (40KM)', '10G SFP+ ZR (80KM)'],
+      title: 'Legacy & Access (40G/25G/10G)',
+      description: 'Reliable connectivity for edge and access networks.',
+      image: '/images/optical module-3.png',
+      items: [
+        '40G QSFP+ SR4', '40G QSFP+ LR4',
+        '25G SFP28 SR', '25G SFP28 LR',
+        '10G SFP+ SR', '10G SFP+ LR'
+      ],
     },
     {
       title: 'PON Optical Transceiver',
-      products: ['10G EPON OLT/ONU', '10G Combo PON OLT C++', '10G Combo PON OLT C+\'/D1/D2/E1/E2', 'GPON OLT', 'XGS PON OLT'],
+      description: 'FTTH and broadband access solutions.',
+      image: '/images/optical module-5.png',
+      items: ['10G EPON OLT/ONU', '10G Combo PON OLT', 'GPON OLT', 'XGS PON OLT'],
     },
   ];
+
+  // Type guard to check if item is a Product object
+  const isProduct = (item: string | Product): item is Product => {
+    return (item as Product).id !== undefined;
+  };
 
   return (
     <main className="min-h-screen bg-background pt-32 pb-12 relative overflow-hidden">
@@ -67,39 +102,71 @@ export default function ProductsPage() {
 
         <div className="space-y-32 mb-32">
           {categories.map((category, idx) => (
-            <div key={category.title} className="group">
-              <div className="flex flex-col lg:flex-row gap-16 items-start">
-                {/* Category Header & Image */}
-                <div className="lg:w-1/3 sticky top-32">
-                  <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-[#0f172a]/50 mb-6 border border-white/5 shadow-sm">
+            <div key={category.title} className="group scroll-mt-32" id={category.title.toLowerCase().replace(/\s+/g, '-')}>
+              <div className="flex flex-col lg:flex-row gap-12 items-start">
+                {/* Category Header & Image - Sticky on large screens */}
+                <div className="lg:w-1/3 lg:sticky lg:top-32">
+                  <div className="relative aspect-video w-full overflow-hidden rounded-3xl bg-[#0f172a]/50 mb-8 border border-white/10 shadow-lg group-hover:border-[#2997ff]/30 transition-colors duration-500">
                      <div className="absolute inset-0 flex items-center justify-center p-8 bg-transparent">
                         <Image
-                          src="/images/optical module-1.png"
+                          src={category.image}
                           alt={category.title}
                           fill
-                          className="object-contain p-4 group-hover:scale-105 transition-transform duration-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]"
+                          className="object-contain p-4 group-hover:scale-105 transition-transform duration-500 drop-shadow-[0_0_20px_rgba(255,255,255,0.05)]"
                         />
                      </div>
+                     {/* Glow effect */}
+                     <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent opacity-60" />
                   </div>
-                  <h2 className="text-3xl font-semibold text-[#f8fafc] mb-4">{category.title}</h2>
-                  <button className="flex items-center gap-2 text-[#2997ff] font-medium hover:underline hover:text-[#00f0ff]">
-                    View Specifications <ArrowRight className="w-4 h-4" />
-                  </button>
+                  <h2 className="text-3xl font-semibold text-[#f8fafc] mb-3">{category.title}</h2>
+                  <p className="text-[#94a3b8] mb-6 leading-relaxed">{category.description}</p>
                 </div>
 
                 {/* Product Grid */}
                 <div className="lg:w-2/3 w-full">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {category.products.map((product) => (
-                      <div key={product} className="p-6 bg-[#0f172a]/30 border border-white/5 rounded-xl hover:shadow-[0_0_15px_rgba(41,151,255,0.15)] transition-all duration-300 flex items-center justify-between group/item cursor-pointer hover:border-[#2997ff]/30 hover:bg-[#1e293b]">
-                        <span className="font-medium text-[#94a3b8] group-hover/item:text-[#f8fafc] transition-colors">{product}</span>
-                        <ArrowRight className="w-4 h-4 text-[#2997ff] opacity-0 group-hover/item:opacity-100 -translate-x-2 group-hover/item:translate-x-0 transition-all" />
-                      </div>
-                    ))}
+                    {category.items.map((item, i) => {
+                      if (isProduct(item)) {
+                        // Render full product card
+                        return (
+                          <Link href={`/products/${item.id}`} key={item.id} className="block h-full">
+                            <div className="h-full p-6 bg-[#1e293b]/40 border border-white/5 rounded-2xl hover:shadow-[0_0_20px_rgba(41,151,255,0.15)] transition-all duration-300 flex flex-col justify-between group/card hover:border-[#2997ff]/40 hover:bg-[#1e293b]/80">
+                              <div className="flex justify-between items-start mb-4">
+                                <div className="w-12 h-12 relative rounded-lg bg-black/20 p-1">
+                                    <Image src={item.image} alt={item.name} fill className="object-contain" />
+                                </div>
+                                <div className="p-2 bg-[#2997ff]/10 rounded-full text-[#2997ff] opacity-0 group-hover/card:opacity-100 transition-opacity">
+                                    <ArrowRight className="w-4 h-4" />
+                                </div>
+                              </div>
+                              <div>
+                                <h3 className="font-semibold text-[#f8fafc] text-lg mb-1 group-hover/card:text-[#2997ff] transition-colors">{item.name}</h3>
+                                <p className="text-xs text-[#94a3b8] font-mono mb-3">{item.model}</p>
+                                <ul className="space-y-1">
+                                    {Object.entries(item.specs).slice(0, 2).map(([k, v]) => (
+                                        <li key={k} className="text-xs text-gray-500 flex items-center gap-2">
+                                            <span className="w-1 h-1 rounded-full bg-gray-600" /> {v}
+                                        </li>
+                                    ))}
+                                </ul>
+                              </div>
+                            </div>
+                          </Link>
+                        );
+                      } else {
+                        // Render simple string item
+                        return (
+                          <div key={i} className="p-5 bg-[#0f172a]/30 border border-white/5 rounded-xl flex items-center justify-between group/item hover:border-[#2997ff]/20 hover:bg-[#1e293b]/30 transition-all">
+                            <span className="font-medium text-[#94a3b8] group-hover/item:text-gray-200 transition-colors">{item}</span>
+                            <CheckCircle2 className="w-4 h-4 text-[#2997ff]/50 group-hover/item:text-[#2997ff] transition-colors" />
+                          </div>
+                        );
+                      }
+                    })}
                   </div>
                 </div>
               </div>
-              {idx !== categories.length - 1 && <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mt-32" />}
+              {idx !== categories.length - 1 && <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mt-24" />}
             </div>
           ))}
         </div>

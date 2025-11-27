@@ -307,7 +307,7 @@ export default function SolutionsPage() {
                                 </div>
                                 <div>
                                     <div className="flex justify-between text-sm mb-2 font-medium text-[#2997ff]">
-                                        <span>Huamao Technology</span>
+                                        <span>Fly Global Trading Limited</span>
                                         <span>2.4W</span>
                                     </div>
                                     <div className="h-4 bg-[#2997ff]/20 rounded-full overflow-hidden border border-[#2997ff]/30">

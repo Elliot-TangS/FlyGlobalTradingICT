@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
           <div className="col-span-1 md:col-span-1">
             <div className="relative h-12 w-48 mb-8">
-              <Image src="/logo/logo.png" alt="Huamao Technology" fill className="object-contain brightness-0 invert" />
+              <Image src="/logo/logo-s.png" alt="Fly Global Trading Limited" fill className="object-contain" />
             </div>
             <p className="text-[#94a3b8] leading-relaxed mb-8 font-medium">
               Your Trustworthy Global ICT Infrastructure Supply Partner. Connecting the world with cutting-edge optical technology.
@@ -59,7 +59,7 @@ export default function Footer() {
 
         <div className="border-t border-white/10 pt-12 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-[#64748b] text-xs">
-            © {new Date().getFullYear()} Shenzhen Huamao Technology Co., Ltd. All rights reserved.
+            © {new Date().getFullYear()} Fly Global Trading Limited. All rights reserved.
           </p>
         </div>
       </div>

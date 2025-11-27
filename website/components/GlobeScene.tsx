@@ -70,8 +70,8 @@ export default function GlobeScene({ targetRef }: GlobeSceneProps) {
       mapSamples: 20000, // Denser points for "Sci-Fi" data look
       mapBrightness: 12, // Brighter map points
       baseColor: [0.1, 0.1, 0.2], // Dark Navy/Slate base
-      markerColor: [2, 2, 3], // Ultra Bright/Glowing Markers (values > 1 bloom)
-      glowColor: [0.2, 0.5, 1], // Deep Blue Glow
+      markerColor: [0.16, 0.59, 1.0], // Matches #2997ff brand color (normalized [r/255, g/255, b/255] * brightness factor)
+      glowColor: [0.1, 0.3, 0.8], // Deep Blue Glow
       opacity: 1, // Solid opacity
       markers: [
         { location: [22.3193, 114.1694], size: 0.08 }, // HK

@@ -302,19 +302,19 @@ export default function Home() {
                           title: '1.6T Optical Modules', 
                           subtitle: 'Next-Gen AI Clusters',
                           desc: 'Ultra-high bandwidth for next-generation AI and hyperscale data center networks. Defining the future of connectivity.', 
-                          image: '/images/optical module-1.png' 
+                          image: '/images/1. 1.6T OSFP DR8 (LO1600-DR8M2C).jpg' 
                       },
                       { 
                           title: '800G Optical Modules', 
                           subtitle: 'OSFP & QSFP-DD',
                           desc: 'High-density, low-latency solutions optimized for cloud computing and massive data throughput.', 
-                          image: '/images/optical module-2.png' 
+                          image: '/images/2. 800G OSFP SR8 (LO800-SR8M2C).jpg' 
                       },
                       { 
                           title: '400G Optical Modules', 
                           subtitle: 'Mainstream High-Performance',
                           desc: 'Industry-standard high-speed interconnects delivering reliable performance for enterprise and telecom networks.', 
-                          image: '/images/optical module-3.png' 
+                          image: '/images/5. 400G QSFP112 DR4 (LQ400-DR4MC).jpg' 
                       }
                   ].map((item, i) => (
                        <Link href="/products" key={i} className="apple-card p-8 flex flex-col h-full group cursor-pointer hover:border-[#2997ff]/30">

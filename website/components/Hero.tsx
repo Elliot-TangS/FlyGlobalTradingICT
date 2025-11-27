@@ -17,7 +17,7 @@ export default function Hero() {
             className="text-left"
           >
             {/* <h2 className="text-[#94a3b8] font-medium tracking-normal uppercase mb-6 text-xs md:text-sm opacity-60">
-              Shenzhen Huamao Technology Co., Ltd.
+              Fly Global Trading Limited
             </h2> */}
             <h1 className="text-6xl md:text-7xl lg:text-8xl font-semibold text-[#f8fafc] mb-6 leading-[1.1] tracking-tight">
               Lighting the <br />
