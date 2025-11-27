@@ -3,54 +3,6 @@ import { Award, Users, Zap, GraduationCap, Briefcase, MapPin, Phone, Mail, Globe
 import { DotPattern } from '@/components/ui/dot-pattern';
 import { cn } from '@/lib/utils';
 
-const locations = [
-  {
-    city: "Hong Kong, China",
-    role: "Asia Headquarters",
-    address: "RM 3, Unit P, 1/F, Kaiser Estate, Phase 3, Nos. 9-11 Hok Yuen Street, Hunghom, Kowloon, HK",
-    phone: "+852 4609 0287",
-    email: "info@flygtl-ict.com",
-    coordinate: "Asia Pacific",
-    image: "/images/Hongkong.jpg"
-  },
-  {
-    city: "Arizona, USA",
-    role: "North America Business Headquarters",
-    address: "4539 N 22ND ST, STE N, PHOENIX, AZ 85016",
-    phone: "+1 (223) 267-7777",
-    email: "info@flygtl-ict.com",
-    coordinate: "North America",
-    image: "/images/USA Arizona .jpeg"
-  },
-  {
-    city: "Selangor, Malaysia",
-    role: "Southeast Asia Market Operations Center",
-    address: "Sky Park One City, Jalan USJ 25/1B, 47650 Subang Jaya, Selangor, Malaysia",
-    email: "info@flygtl-ict.com",
-    coordinate: "Southeast Asia",
-    image: "/images/Malaysia Johor.jpg"
-  },
-  {
-    city: "Brisbane, Australia",
-    role: "Oceania Strategic Base",
-    address: "Sunnybank Hills, Queensland 4109, Australia",
-    email: "info@flygtl-ict.com",
-    coordinate: "Oceania",
-    image: "/images/Australia Sydney.jpeg"
-  },
-  {
-    city: "Warsaw, Poland",
-    role: "East-West Europe Hub",
-    coordinate: "Europe",
-    image: "/images/Poland Warsaw.jpeg"
-  },
-  {
-    city: "Moscow, Russia",
-    role: "Eurasian Market Service Node",
-    coordinate: "Eurasia",
-    image: "/images/Russia Moscow.jpeg"
-  }
-];
 
 export default function AboutPage() {
   return (
@@ -86,71 +38,6 @@ export default function AboutPage() {
                 Fly Global Trading Limited builds the optical foundation of tomorrow’s digital world. With global offices and a multidisciplinary engineering team, we design and manufacture ultra-low-power optical transceivers that enable hyperscale AI clusters, cloud fabrics, and next-generation telecom networks.
             </p>
         </div>
-      </section>
-
-      {/* Global Network Section */}
-      <section className="container mx-auto px-6 mb-32 relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="section-title mb-6 text-[#f8fafc]">Our Global Network</h2>
-            <p className="section-desc max-w-2xl mx-auto text-[#94a3b8]">
-              Strategically positioned across key markets to serve our partners worldwide.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-              {locations.map((loc, index) => (
-                <div key={index} className="group relative h-[500px] overflow-hidden rounded-3xl border border-white/10 hover:border-[#2997ff]/50 transition-all duration-500 shadow-2xl">
-                  {/* Background Image */}
-                  <div className="absolute inset-0 w-full h-full">
-                    <Image
-                      src={loc.image}
-                      alt={loc.city}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/80 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500" />
-                  </div>
-                  
-                  <div className="relative z-10 p-8 h-full flex flex-col justify-end">
-                    <div className="mb-auto">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 border border-white/20 backdrop-blur-md mb-4 shadow-lg">
-                            <Globe2 className="w-3.5 h-3.5 text-[#2997ff]" />
-                            <span className="text-xs font-medium tracking-wider text-white uppercase">
-                                {loc.coordinate}
-                            </span>
-                        </div>
-                    </div>
-
-                    <h3 className="text-3xl font-bold text-white mb-2 group-hover:text-[#2997ff] transition-colors duration-300">{loc.city}</h3>
-                    <p className="text-gray-300 font-medium mb-6 text-lg border-l-2 border-[#2997ff] pl-4">{loc.role}</p>
-                    
-                    {(loc.address || loc.email || loc.phone) && (
-                      <div className="space-y-3 pt-6 border-t border-white/10 bg-black/20 -mx-8 px-8 pb-0 backdrop-blur-sm">
-                        {loc.address && (
-                          <div className="flex items-start gap-3 group/item">
-                            <MapPin className="w-4 h-4 text-[#2997ff] mt-1 shrink-0" />
-                            <p className="text-sm text-gray-400 group-hover/item:text-white transition-colors line-clamp-2">{loc.address}</p>
-                          </div>
-                        )}
-                        {loc.phone && (
-                          <div className="flex items-center gap-3 group/item">
-                            <Phone className="w-4 h-4 text-[#2997ff] shrink-0" />
-                            <p className="text-sm text-gray-400 group-hover/item:text-white transition-colors">{loc.phone}</p>
-                          </div>
-                        )}
-                        {loc.email && (
-                          <div className="flex items-center gap-3 group/item">
-                            <Mail className="w-4 h-4 text-[#2997ff] shrink-0" />
-                            <p className="text-sm text-gray-400 group-hover/item:text-white transition-colors">{loc.email}</p>
-                          </div>
-                        )}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              ))}
-          </div>
       </section>
 
       {/* Global Team */}

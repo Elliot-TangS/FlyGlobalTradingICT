@@ -64,54 +64,60 @@ export default function Home() {
       <section className="py-32 bg-transparent relative z-10">
         <div className="container mx-auto px-6">
            <div className="text-center mb-24">
-              <h2 className="text-[#94a3b8] font-medium tracking-normal uppercase mb-6 text-xs md:text-sm opacity-60">
+              <h2 className="text-[#2997ff] font-semibold tracking-widest uppercase mb-6 text-sm">
                  Optical Technology Leadership
               </h2>
-              <h2 className="text-5xl md:text-7xl font-semibold text-[#f8fafc] mb-8 leading-tight tracking-tight">
-                 Redefining High-Speed Optical Connectivity.
+              <h2 className="text-5xl md:text-7xl font-bold text-[#f8fafc] mb-8 leading-tight tracking-tight">
+                 Redefining <br className="hidden md:block" />
+                 <span className="text-gradient">High-Speed Optical Connectivity.</span>
               </h2>
-              <p className="text-[#94a3b8] text-lg md:text-xl max-w-4xl mx-auto leading-relaxed font-normal">
+              <p className="text-[#94a3b8] text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed font-light">
                  We develop advanced optical transceiver technologies for next-generation AI, cloud, and telecom networks. Our work spans the entire opto-electrical chain—from high-speed optical chips to ultra-low-power module architectures and system-level optimization.
               </p>
            </div>
 
-           {/* Technical Indicators Banner - Like Cisco/NVIDIA */}
-           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-24 border-y border-white/10 py-12">
-               <div className="text-center border-r border-white/10 last:border-r-0">
-                   <div className="text-4xl md:text-5xl font-bold text-[#2997ff] mb-2 tracking-tighter drop-shadow-[0_0_10px_rgba(41,151,255,0.5)]">30-70%</div>
-                   <div className="text-sm text-[#94a3b8] uppercase tracking-wider font-medium">Lower Power Consumption</div>
+           {/* Technical Indicators Banner - Modernized */}
+           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-24 relative">
+               {/* Glass background container */}
+               <div className="absolute inset-0 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-md -z-10" />
+               
+               <div className="p-8 text-center relative group">
+                   <div className="text-4xl md:text-5xl font-bold text-white mb-2 tracking-tighter drop-shadow-[0_0_15px_rgba(255,255,255,0.3)] group-hover:scale-110 transition-transform duration-300">30-70%</div>
+                   <div className="text-xs md:text-sm text-[#94a3b8] uppercase tracking-widest font-medium group-hover:text-[#2997ff] transition-colors">Lower Power Consumption</div>
                </div>
-               <div className="text-center border-r border-white/10 last:border-r-0">
-                   <div className="text-4xl md:text-5xl font-bold text-[#2997ff] mb-2 tracking-tighter drop-shadow-[0_0_10px_rgba(41,151,255,0.5)]">2-4 Orders</div>
-                   <div className="text-sm text-[#94a3b8] uppercase tracking-wider font-medium">Lower Bit Error Rate (BER)</div>
+               <div className="p-8 text-center relative border-l border-white/5 group">
+                   <div className="text-4xl md:text-5xl font-bold text-white mb-2 tracking-tighter drop-shadow-[0_0_15px_rgba(255,255,255,0.3)] group-hover:scale-110 transition-transform duration-300">2-4 Orders</div>
+                   <div className="text-xs md:text-sm text-[#94a3b8] uppercase tracking-widest font-medium group-hover:text-[#2997ff] transition-colors">Lower Bit Error Rate</div>
                </div>
-               <div className="text-center border-r border-white/10 last:border-r-0">
-                   <div className="text-4xl md:text-5xl font-bold text-[#2997ff] mb-2 tracking-tighter drop-shadow-[0_0_10px_rgba(41,151,255,0.5)]">&lt; 0.5%</div>
-                   <div className="text-sm text-[#94a3b8] uppercase tracking-wider font-medium">Field Failure Rate</div>
+               <div className="p-8 text-center relative border-l border-white/5 group">
+                   <div className="text-4xl md:text-5xl font-bold text-white mb-2 tracking-tighter drop-shadow-[0_0_15px_rgba(255,255,255,0.3)] group-hover:scale-110 transition-transform duration-300">&lt; 0.5%</div>
+                   <div className="text-xs md:text-sm text-[#94a3b8] uppercase tracking-widest font-medium group-hover:text-[#2997ff] transition-colors">Field Failure Rate</div>
                </div>
-               <div className="text-center">
-                   <div className="text-4xl md:text-5xl font-bold text-[#2997ff] mb-2 tracking-tighter drop-shadow-[0_0_10px_rgba(41,151,255,0.5)]">1.6 Tbps</div>
-                   <div className="text-sm text-[#94a3b8] uppercase tracking-wider font-medium">Max Bandwidth Per Module</div>
+               <div className="p-8 text-center relative border-l border-white/5 group">
+                   <div className="text-4xl md:text-5xl font-bold text-white mb-2 tracking-tighter drop-shadow-[0_0_15px_rgba(255,255,255,0.3)] group-hover:scale-110 transition-transform duration-300">1.6 Tbps</div>
+                   <div className="text-xs md:text-sm text-[#94a3b8] uppercase tracking-widest font-medium group-hover:text-[#2997ff] transition-colors">Max Bandwidth</div>
                </div>
            </div>
 
-           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
               {/* Next-Generation Optical Architecture */}
-              <div className="apple-card p-10 hover:border-[#2997ff]/30 group">
-                 <div className="w-14 h-14 rounded-2xl bg-transparent border border-[#2997ff]/30 flex items-center justify-center mb-8 shadow-[0_0_15px_rgba(41,151,255,0.1)]">
-                     <Layers className="w-8 h-8 text-[#2997ff] stroke-[1.5]" />
+              <div className="apple-card p-10 hover:border-[#2997ff]/50 group relative overflow-hidden">
+                 <div className="absolute top-0 right-0 w-64 h-64 bg-[#2997ff]/5 rounded-full blur-3xl -mr-32 -mt-32 transition-opacity opacity-0 group-hover:opacity-100" />
+                 
+                 <div className="w-16 h-16 rounded-2xl bg-[#2997ff]/10 border border-[#2997ff]/20 flex items-center justify-center mb-8 shadow-[0_0_20px_rgba(41,151,255,0.15)] group-hover:scale-110 transition-transform duration-500">
+                     <Layers className="w-8 h-8 text-[#2997ff]" />
                  </div>
-                 <h3 className="text-2xl font-semibold mb-6 text-[#f8fafc]">Next-Generation High-Speed Optical Architecture</h3>
-                 <p className="text-[#94a3b8] mb-8 leading-relaxed">
-                    Our optical modules integrate optimized electrical and optical paths to deliver industry-leading performance in high-speed interconnects.
+                 <h3 className="text-2xl md:text-3xl font-bold mb-6 text-[#f8fafc]">Next-Gen Optical Architecture</h3>
+                 <p className="text-[#94a3b8] mb-8 leading-relaxed text-lg">
+                    Integrating optimized electrical and optical paths to deliver industry-leading performance in high-speed interconnects.
                  </p>
                  <ul className="space-y-4">
                     {[
                         'Ultra-low-power signal processing',
                         'Precision optical coupling and alignment',
                         'High-linearity modulation and photodetection',
-                        'High-density OSFP / QSFP-DD / QSFP112 mechanical design',
-                        'Thermal-optimized housings for reliable operation under load'
+                        'High-density OSFP / QSFP-DD designs',
+                        'Thermal-optimized housings'
                     ].map((item, i) => (
                         <li key={i} className="flex items-start gap-3 text-[#94a3b8] group-hover:text-[#f8fafc] transition-colors">
                             <CheckCircle2 className="w-5 h-5 text-[#2997ff] shrink-0 mt-0.5" />
@@ -122,20 +128,22 @@ export default function Home() {
               </div>
 
               {/* High-Speed Optical Performance Engineering */}
-              <div className="apple-card p-10 hover:border-[#2997ff]/30 group">
-                 <div className="w-14 h-14 rounded-2xl bg-transparent border border-[#2997ff]/30 flex items-center justify-center mb-8 shadow-[0_0_15px_rgba(41,151,255,0.1)]">
-                     <Gauge className="w-8 h-8 text-[#2997ff] stroke-[1.5]" />
+              <div className="apple-card p-10 hover:border-[#2997ff]/50 group relative overflow-hidden">
+                 <div className="absolute top-0 right-0 w-64 h-64 bg-[#2997ff]/5 rounded-full blur-3xl -mr-32 -mt-32 transition-opacity opacity-0 group-hover:opacity-100" />
+
+                 <div className="w-16 h-16 rounded-2xl bg-[#2997ff]/10 border border-[#2997ff]/20 flex items-center justify-center mb-8 shadow-[0_0_20px_rgba(41,151,255,0.15)] group-hover:scale-110 transition-transform duration-500">
+                     <Gauge className="w-8 h-8 text-[#2997ff]" />
                  </div>
-                 <h3 className="text-2xl font-semibold mb-6 text-[#f8fafc]">High-Speed Optical Performance Engineering</h3>
-                 <p className="text-[#94a3b8] mb-8 leading-relaxed">
-                    We apply full-link signal optimization to achieve cleaner eye diagrams, lower jitter, and superior pre- and post-FEC performance across all high-speed data rates.
+                 <h3 className="text-2xl md:text-3xl font-bold mb-6 text-[#f8fafc]">Performance Engineering</h3>
+                 <p className="text-[#94a3b8] mb-8 leading-relaxed text-lg">
+                    Full-link signal optimization for cleaner eye diagrams, lower jitter, and superior pre- and post-FEC performance.
                  </p>
                  <ul className="space-y-4">
                     {[
                         'Ultra-low-jitter SERDES tuning',
-                        'Enhanced TDECQ and extinction-ratio control',
-                        'Ultra-low BER across 200G / 400G / 800G / 1.6T',
-                        'Power-budget optimization for both short-reach and long-reach optics'
+                        'Enhanced TDECQ control',
+                        'Ultra-low BER across 400G / 800G / 1.6T',
+                        'Optimized for long-reach optics'
                     ].map((item, i) => (
                         <li key={i} className="flex items-start gap-3 text-[#94a3b8] group-hover:text-[#f8fafc] transition-colors">
                             <CheckCircle2 className="w-5 h-5 text-[#2997ff] shrink-0 mt-0.5" />
@@ -146,20 +154,22 @@ export default function Home() {
               </div>
 
               {/* Thermal & Reliability Engineering */}
-              <div className="apple-card p-10 hover:border-[#2997ff]/30 group">
-                 <div className="w-14 h-14 rounded-2xl bg-transparent border border-[#2997ff]/30 flex items-center justify-center mb-8 shadow-[0_0_15px_rgba(41,151,255,0.1)]">
-                     <Thermometer className="w-8 h-8 text-[#2997ff] stroke-[1.5]" />
+              <div className="apple-card p-10 hover:border-[#2997ff]/50 group relative overflow-hidden">
+                 <div className="absolute top-0 right-0 w-64 h-64 bg-[#2997ff]/5 rounded-full blur-3xl -mr-32 -mt-32 transition-opacity opacity-0 group-hover:opacity-100" />
+
+                 <div className="w-16 h-16 rounded-2xl bg-[#2997ff]/10 border border-[#2997ff]/20 flex items-center justify-center mb-8 shadow-[0_0_20px_rgba(41,151,255,0.15)] group-hover:scale-110 transition-transform duration-500">
+                     <Thermometer className="w-8 h-8 text-[#2997ff]" />
                  </div>
-                 <h3 className="text-2xl font-semibold mb-6 text-[#f8fafc]">Advanced Optical Packaging & Architecture</h3>
-                 <p className="text-[#94a3b8] mb-8 leading-relaxed">
-                    High-speed optical modules demand exceptional thermal stability and extremely low failure rates.
+                 <h3 className="text-2xl md:text-3xl font-bold mb-6 text-[#f8fafc]">Thermal & Reliability</h3>
+                 <p className="text-[#94a3b8] mb-8 leading-relaxed text-lg">
+                    Exceptional thermal stability and extremely low failure rates for mission-critical infrastructure.
                  </p>
                  <ul className="space-y-4">
                     {[
-                        'Advanced thermal path and heat-spreader design',
-                        'Temperature-aware bias and modulation control',
-                        'Aging simulations and accelerated stress testing',
-                        'Cleanroom manufacturing and optical-grade inspection processes'
+                        'Advanced heat-spreader design',
+                        'Temperature-aware bias control',
+                        'Accelerated stress testing',
+                        'Optical-grade inspection processes'
                     ].map((item, i) => (
                         <li key={i} className="flex items-start gap-3 text-[#94a3b8] group-hover:text-[#f8fafc] transition-colors">
                             <CheckCircle2 className="w-5 h-5 text-[#2997ff] shrink-0 mt-0.5" />
@@ -170,20 +180,22 @@ export default function Home() {
               </div>
 
               {/* Ultra-Low-Power Optical Module Technology */}
-              <div className="apple-card p-10 hover:border-[#2997ff]/30 group">
-                 <div className="w-14 h-14 rounded-2xl bg-transparent border border-[#2997ff]/30 flex items-center justify-center mb-8 shadow-[0_0_15px_rgba(41,151,255,0.1)]">
-                     <Zap className="w-8 h-8 text-[#2997ff] stroke-[1.5]" />
+              <div className="apple-card p-10 hover:border-[#2997ff]/50 group relative overflow-hidden">
+                 <div className="absolute top-0 right-0 w-64 h-64 bg-[#2997ff]/5 rounded-full blur-3xl -mr-32 -mt-32 transition-opacity opacity-0 group-hover:opacity-100" />
+
+                 <div className="w-16 h-16 rounded-2xl bg-[#2997ff]/10 border border-[#2997ff]/20 flex items-center justify-center mb-8 shadow-[0_0_20px_rgba(41,151,255,0.15)] group-hover:scale-110 transition-transform duration-500">
+                     <Zap className="w-8 h-8 text-[#2997ff]" />
                  </div>
-                 <h3 className="text-2xl font-semibold mb-6 text-[#f8fafc]">High-Density Optical Interconnect Architecture</h3>
-                 <p className="text-[#94a3b8] mb-8 leading-relaxed">
+                 <h3 className="text-2xl md:text-3xl font-bold mb-6 text-[#f8fafc]">High-Density Efficiency</h3>
+                 <p className="text-[#94a3b8] mb-8 leading-relaxed text-lg">
                     Designed for hyperscale AI clusters, cloud fabrics, and high-density switching environments.
                  </p>
                  <ul className="space-y-4">
                     {[
-                        '30%–70% lower power consumption versus conventional designs',
-                        'Optimized driver, TIA, and power-delivery architectures',
-                        'Thermal and electrical balancing for dense rack deployments',
-                        'DSP-less optical link designs where applicable'
+                        '30%–70% lower power consumption',
+                        'Optimized driver & TIA architectures',
+                        'Thermal balancing for dense racks',
+                        'DSP-less optical link designs'
                     ].map((item, i) => (
                         <li key={i} className="flex items-start gap-3 text-[#94a3b8] group-hover:text-[#f8fafc] transition-colors">
                             <CheckCircle2 className="w-5 h-5 text-[#2997ff] shrink-0 mt-0.5" />
@@ -195,28 +207,33 @@ export default function Home() {
            </div>
 
            {/* System-Level Integration Excellence - Full Width */}
-           <div className="apple-card p-10 mb-24 hover:border-[#2997ff]/30 group">
-               <div className="flex flex-col md:flex-row gap-10 items-start">
-                   <div className="md:w-1/3">
-                       <div className="w-14 h-14 rounded-2xl bg-[#2997ff]/10 flex items-center justify-center mb-8 shadow-[0_0_15px_rgba(41,151,255,0.2)]">
+           <div className="apple-card p-10 md:p-12 mb-24 hover:border-[#2997ff]/50 group relative overflow-hidden">
+               <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#2997ff]/5 rounded-full blur-3xl -mr-64 -mt-64 pointer-events-none" />
+               
+               <div className="flex flex-col lg:flex-row gap-12 items-start relative z-10">
+                   <div className="lg:w-1/3">
+                       <div className="w-16 h-16 rounded-2xl bg-[#2997ff]/10 border border-[#2997ff]/20 flex items-center justify-center mb-8 shadow-[0_0_20px_rgba(41,151,255,0.15)]">
                            <Cpu className="w-8 h-8 text-[#2997ff]" />
                        </div>
-                       <h3 className="text-2xl font-semibold mb-4 text-[#f8fafc]">System-Level Integration Excellence</h3>
-                       <p className="text-[#94a3b8] leading-relaxed">
+                       <h3 className="text-3xl font-bold mb-6 text-[#f8fafc]">System Integration Excellence</h3>
+                       <p className="text-[#94a3b8] leading-relaxed text-lg">
                           Beyond module-level design, we ensure end-to-end system compatibility and performance, resulting in a true plug-and-perform experience across diverse infrastructures.
                        </p>
                    </div>
-                   <div className="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                   <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {[
-                            'Host-platform tuning for leading compute and networking systems',
+                            'Host-platform tuning for leading compute systems',
                             'PAM4 and NRZ optical-link optimization',
-                            'Backplane and midplane signal-integrity engineering',
+                            'Backplane signal-integrity engineering',
                             'Retimer / CDR interface optimization',
-                            'EMI / EMC system-wide compliance tuning'
+                            'EMI / EMC system-wide compliance tuning',
+                            'Interoperability with major switch vendors'
                         ].map((item, i) => (
-                            <div key={i} className="flex items-start gap-3 p-4 bg-[#0f172a]/30 rounded-xl border border-white/5">
-                                <CheckCircle2 className="w-5 h-5 text-[#2997ff] shrink-0 mt-0.5" />
-                                <span className="text-[#94a3b8] text-sm group-hover:text-[#f8fafc] transition-colors">{item}</span>
+                            <div key={i} className="flex items-center gap-4 p-5 bg-white/5 rounded-xl border border-white/5 hover:bg-white/10 transition-colors group/item">
+                                <div className="w-8 h-8 rounded-full bg-[#2997ff]/20 flex items-center justify-center shrink-0">
+                                  <CheckCircle2 className="w-4 h-4 text-[#2997ff]" />
+                                </div>
+                                <span className="text-[#94a3b8] text-base font-medium group-hover/item:text-white transition-colors">{item}</span>
                             </div>
                         ))}
                    </div>
@@ -360,16 +377,31 @@ export default function Home() {
           </div>
       </section>
 
-      {/* CTA - Simple & Direct */}
-      <section className="py-40 bg-transparent text-center relative z-10">
+      {/* CTA - Premium Gradient Card */}
+      <section className="py-24 relative z-10">
           <div className="container mx-auto px-6">
-              <h2 className="section-title mb-8">Ready to upgrade?</h2>
-              <p className="section-desc mb-12 max-w-2xl mx-auto">
-                  Contact our global team today for premium optical solutions tailored to your needs.
-              </p>
-              <Link href="/contact" className="apple-button text-lg px-12 py-4 shadow-lg hover:shadow-xl">
-                  Get in Touch
-              </Link>
+              <div className="relative overflow-hidden rounded-[2.5rem] bg-[#0f172a] border border-white/10 text-center px-6 py-24 md:py-32">
+                  {/* Animated Background Glows */}
+                  <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#2997ff]/20 rounded-full blur-[120px] -translate-y-1/2 pointer-events-none animate-pulse" />
+                  <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[#00f0ff]/10 rounded-full blur-[120px] translate-y-1/2 pointer-events-none" />
+                  
+                  <div className="relative z-10 max-w-4xl mx-auto">
+                      <h2 className="text-5xl md:text-7xl font-bold text-white mb-8 tracking-tight drop-shadow-lg">
+                          Ready to <span className="text-gradient">upgrade?</span>
+                      </h2>
+                      <p className="text-[#94a3b8] text-xl md:text-2xl mb-12 max-w-2xl mx-auto font-light leading-relaxed">
+                          Join the world's leading hyperscalers and telecom providers. Experience the future of optical connectivity today.
+                      </p>
+                      <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+                          <Link href="/contact" className="apple-button text-lg px-10 py-4 shadow-[0_0_30px_rgba(41,151,255,0.4)] hover:shadow-[0_0_50px_rgba(41,151,255,0.6)] flex items-center gap-2 group">
+                              Get in Touch <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                          </Link>
+                          <Link href="/products" className="px-10 py-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-white text-lg font-medium transition-all hover:scale-105 backdrop-blur-sm">
+                              View Portfolio
+                          </Link>
+                      </div>
+                  </div>
+              </div>
           </div>
       </section>
     </main>
